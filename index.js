@@ -8,15 +8,39 @@ class Linked {
     if (this.head === null) {
       newNode.nextNode = this.head;
       this.head = newNode;
-      return this.head;
     } else {
       let current = this.head;
       while (current.nextNode) {
         current = current.nextNode;
       }
       current.nextNode = newNode;
-      return current;
     }
+  }
+
+  prepend(value) {
+    const newNode = new Node(value);
+    if (this.head === null) {
+      newNode.nextNode = this.head;
+      this.head = newNode;
+    } else {
+      let current = this.head;
+      newNode.nextNode = current;
+      this.head = newNode;
+    }
+    return this.head;
+  }
+
+  head1() {
+    return this.head;
+  }
+  tail() {
+    let current = this.head;
+    if (current.nextNode === null) return current;
+
+    while (current.nextNode) {
+      current = current.nextNode;
+    }
+    return current;
   }
 }
 
@@ -28,9 +52,14 @@ class Node {
 }
 console.clear();
 const first = new Linked();
-console.log(first.append("34"));
-console.log(first.append("334"));
-console.log(first.append("6"));
+first.append("1");
+first.append("2");
+first.append("3");
+first.prepend("000");
+//console.log(first.append("4"));
+
+console.log("head", first.head1());
+console.log("tail", first.tail());
 
 // first.append("334");
 //first.append("22");
