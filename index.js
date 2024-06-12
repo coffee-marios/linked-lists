@@ -20,7 +20,7 @@ class Linked {
   prepend(value) {
     const newNode = new Node(value);
     if (this.head === null) {
-      newNode.nextNode = this.head;
+      // newNode.nextNode = this.head;
       this.head = newNode;
     } else {
       let current = this.head;
@@ -78,6 +78,19 @@ class Linked {
     }
     return null;
   }
+
+  at(index) {
+    let _index = 0;
+
+    let current = this.head;
+    if (current === null) return null;
+    while (current.nextNode && index > _index) {
+      current = current.nextNode;
+      _index += 1;
+    }
+
+    return index > _index ? null : current;
+  }
 }
 
 class Node {
@@ -101,6 +114,14 @@ first.append("4");
 console.log("head", first.head1());
 console.log("tail", first.tail());
 console.log("size", first.size());
+console.log('The node of "10" is', first.at(10));
+
+console.log('The node of "0" is', first.at(0));
+console.log('The node of "1" is', first.at(1));
+console.log('The node of "2" is', first.at(2));
+console.log('The node of "3" is', first.at(3));
+console.log('The node of "4" is', first.at(4));
+console.log('The node of "5" is', first.at(5));
 
 console.log('The index of "000" is', first.find("000"));
 console.log('The index of "1" is', first.find("1"));
