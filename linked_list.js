@@ -93,29 +93,27 @@ class Linked {
   }
 
   pop() {
-    let siz = this.size();
-    if (siz < 0) throw new Error();
-
-    if (this.head === null) throw new Error();
+    if (this.head === null) return;
 
     let base = this.head;
     let current = base.nextNode;
 
-    if (base.nextNode === null) {
+    if (current === null) {
       this.head = null;
+      return;
+    }
 
+    if (current.nextNode === null) {
+      base.nextNode = null;
       return;
     }
 
     while (current.nextNode) {
+      base = current;
       current = current.nextNode;
-      base = base.nextNode;
 
       if (current.nextNode === null) {
-        console.log(true, "c", current, "b", base);
         base.nextNode = null;
-      } else {
-        console.log(false, "current", current, "base", base);
       }
     }
   }
