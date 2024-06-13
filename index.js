@@ -2,19 +2,19 @@ import { Linked } from "./linked_list.js";
 
 console.clear();
 const first = new Linked();
-console.log("size", first.size());
 
 first.append("1");
 first.append("2");
 first.append("3");
-first.append("1");
-first.append("2");
-first.append("3");
+// first.append("4");
+// first.append("5");
+// first.append("6");
 first.pop();
 first.pop();
 first.pop();
 first.pop();
 console.log("size", first.size());
+console.log("str", first.toString());
 
 // first.append("2");
 // first.append("3");

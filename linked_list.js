@@ -117,6 +117,25 @@ class Linked {
       }
     }
   }
+
+  toString() {
+    let current = this.head;
+    let str = "";
+    if (current === null) return null;
+
+    if (current.nextNode === null) {
+      str = `(${current.value}) -> null`;
+      return str;
+    }
+    while (current.nextNode) {
+      str += `(${current.value}) -> `;
+      current = current.nextNode;
+    }
+
+    str += `(${current.value}) -> null`;
+
+    return str;
+  }
 }
 
 class Node {
