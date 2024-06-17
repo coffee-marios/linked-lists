@@ -25,7 +25,7 @@ console.log("str", first.toString());
 // first.prepend("000");
 // first.append("4");
 
-// console.log("head", first.head1());
+console.log("head", first.head);
 // console.log("tail", first.tail());
 // console.log("size", first.size());
 // console.log('The node at "10" is', first.at(10));

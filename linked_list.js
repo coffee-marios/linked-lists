@@ -30,7 +30,7 @@ class Linked {
     return this.head;
   }
 
-  head1() {
+  head() {
     return this.head;
   }
   tail() {
