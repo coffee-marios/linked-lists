@@ -3,18 +3,20 @@ import { Linked } from "./linked_list.js";
 console.clear();
 const first = new Linked();
 
-first.append("1");
+first.append("start");
 first.append("2");
 first.append("3");
-// first.append("4");
+first.insertAt("INSERT", 3);
+first.append("4");
 // first.append("5");
 // first.append("6");
-first.pop();
-first.pop();
-first.pop();
-first.pop();
+// first.pop();
+// first.pop();
+// first.pop();
+// first.pop();
 console.log("size", first.size());
 console.log("str", first.toString());
+//console.log('The node at "2" is', first.at(2));
 
 // first.append("2");
 // first.append("3");

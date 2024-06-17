@@ -136,6 +136,59 @@ class Linked {
 
     return str;
   }
+  insertAt(value, index) {
+    const newNode = new Node(value);
+    let ind = 0;
+    let base;
+
+    // HEAD IS NULL
+    if (this.head === null) {
+      if (index === 0) {
+        this.head = newNode;
+        return;
+      }
+      if (index > 0) {
+        this.head = new Node(undefined);
+        base = this.head;
+        ind = 1;
+      }
+      while (index > ind) {
+        base.nextNode = new Node(undefined);
+        base = base.nextNode;
+
+        ind += 1;
+      }
+      base.nextNode = newNode;
+      return;
+    }
+
+    // HEAD IS A NODE
+    if (index === 0) {
+      let current = this.head;
+      newNode.nextNode = current;
+      this.head = newNode;
+      return;
+    }
+    base = this.head;
+    ind = 1;
+
+    while (index > ind) {
+      if (base.nextNode) {
+        base = base.nextNode;
+      } else if (base.nextNode === null) {
+        base.nextNode = new Node(undefined);
+        base = base.nextNode;
+      }
+      ind++;
+    }
+    if (base.nextNode !== null) {
+      let intermezo = base.nextNode;
+      base.nextNode = newNode;
+      newNode.nextNode = intermezo;
+    } else {
+      base.nextNode = newNode;
+    }
+  }
 }
 
 class Node {
