@@ -4,18 +4,20 @@ console.clear();
 const first = new Linked();
 
 first.append("start");
+first.append("1");
+
 first.append("2");
 first.append("3");
-first.insertAt("INSERT", 3);
+//first.insertAt("INSERT", 3);
 first.append("4");
-// first.append("5");
-// first.append("6");
+first.append("5");
+first.append("6");
 // first.pop();
 // first.pop();
 // first.pop();
 // first.pop();
 console.log("size", first.size());
-console.log("str", first.toString());
+// console.log("str", first.toString());
 //console.log('The node at "2" is', first.at(2));
 
 // first.append("2");
@@ -24,8 +26,14 @@ console.log("str", first.toString());
 
 // first.prepend("000");
 // first.append("4");
+// console.log("head", first._head());
 
-console.log("head", first.head);
+console.log("str", first.toString());
+
+first.removeAt(6);
+console.log("str", first.toString());
+console.log("size", first.size());
+
 // console.log("tail", first.tail());
 // console.log("size", first.size());
 // console.log('The node at "10" is', first.at(10));

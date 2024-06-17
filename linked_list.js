@@ -30,7 +30,7 @@ class Linked {
     return this.head;
   }
 
-  head() {
+  _head() {
     return this.head;
   }
   tail() {
@@ -188,6 +188,40 @@ class Linked {
     } else {
       base.nextNode = newNode;
     }
+  }
+  removeAt(index) {
+    if (index === 0) {
+      this.head = this.head.nextNode;
+      return;
+    }
+    if (index === 1 && this.head.nextNode !== null) {
+      this.head.nextNode = this.head.nextNode.nextNode;
+      return;
+    }
+
+    let ind = 0;
+    //let base = this.head;
+    let current = this.head;
+    while (ind < index) {
+      console.log(current.value, ind);
+      if (ind === index - 1) {
+        if (current.nextNode.nextNode) {
+          current.nextNode = current.nextNode.nextNode;
+        } else {
+          current.nextNode = null;
+        }
+        break;
+      } else {
+        current = current.nextNode;
+      }
+
+      //base = base.nextNode;
+
+      ind++;
+    }
+
+    //current.nextNode = current.nextNode;
+    console.log(current, "c");
   }
 }
 
