@@ -3,85 +3,125 @@ import { Linked } from "./linked_list.js";
 console.clear();
 const first = new Linked();
 
+// Testing append(), size(), toString()
+
 first.append("start");
 first.append("1");
-
 first.append("2");
 first.append("3");
-//first.insertAt("INSERT", 3);
-// first.append("4");
-// first.append("5");
-// first.append("6");
-// first.pop();
-// first.pop();
-// first.pop();
-// first.pop();
-console.log("size", first.size());
-// console.log("str", first.toString());
-//console.log('The node at "2" is', first.at(2));
+first.append("4");
+first.append("5");
+first.append("6");
 
-// first.append("2");
-// first.append("3");
-// console.log("size", first.size());
+console.log("size, append");
+console.log("\nSize", first.size());
+console.log("To string: ", first.toString());
 
-// first.prepend("000");
-// first.append("4");
-// console.log("head", first._head());
+/* We expect: 
+Size: 7
+(start) -> (1) -> (2) -> (3) -> (4) -> (5) -> (6) -> (null)
+*/
 
-// console.log("str", first.toString());
+// Testing pop()
 
-// first.removeAt(1);
-// console.log("str", first.toString());
-// console.log("size", first.size());
+first.pop();
+first.pop();
+first.pop();
 
-// console.log("tail", first.tail());
-// console.log("size", first.size());
-// console.log('The node at "10" is', first.at(10));
+console.log("\n\npop");
+console.log("\nSize", first.size());
+console.log("To string: ", first.toString());
 
-// console.log('The node at "0" is', first.at(0));
-// console.log('The node at "1" is', first.at(1));
-// console.log('The node at "2" is', first.at(2));
-// console.log('The node at "3" is', first.at(3));
-// console.log('The node at "4" is', first.at(4));
-// console.log('The node at "5" is', first.at(5));
+/* We expect: 
+Size: 4
+(start) -> (1) -> (2) -> (3) -> (null)
+*/
 
-// console.log('The index of "000" is', first.find("000"));
-// console.log('The index of "1" is', first.find("1"));
-// console.log('The index of "3" is', first.find("3"));
-// console.log('The index of "4" is', first.find("4"));
-// console.log('The index of "ab" is', first.find("ab"));
+// Testing insertAt()
 
-// console.log('The value "000" exists in the list:', first.contains("000"));
-// console.log('The value "3" exists in the list:', first.contains("3"));
+first.insertAt("INSERT", 2);
+first.insertAt("INSERT", 0);
 
-// console.log('The value "4" exists in the list:', first.contains("4"));
-// console.log('The value "no" exists in the list:', first.contains("no"));
+console.log("\n\ninsertAt");
+console.log("\nSize", first.size());
+console.log("To string: ", first.toString());
 
-// console.log("\n");
-// console.warn("\n We are going to use pop\n");
-// first.pop();
-// console.log("size", first.size());
+/* We expect: 
+Size: 6
+(INSERT) -> (start) -> (1) -> (INSERT) -> (2)  -> (3) -> (null)
+*/
 
-// console.log('The node at "0" is', first.at(0));
-// console.log('The node at "1" is', first.at(1));
-// console.log('The node at "2" is', first.at(2));
+// Testing removeAt()
 
-// console.log('The node at "4" is', first.at(4));
-// console.log('The node at "5" is', first.at(5));
+first.removeAt(0);
+first.removeAt(2);
 
-// console.log("\n\nmore pop\n");
-// first.pop();
-// // first.pop();
-// // first.pop();
-// // first.pop();
-// // first.pop();
-// // first.pop();
+console.log("\n\nremoveAt");
+console.log("\nSize", first.size());
+console.log("To string: ", first.toString());
 
-// console.log("size", first.size());
+/* We expect: 
+Size: 4
+(start) -> (1) -> (2) -> (3) -> (null)
+*/
 
-// console.log('The node at "0" is', first.at(0));
-// console.log('The node at "1" is', first.at(1));
-// console.log('The node at "2" is', first.at(2));
+// Testing prepend() and append()
 
-// console.log('The node at "4" is', first.at(4));
-// console.log('The node at "5" is', first.at(5));
+first.prepend("PREPEND");
+first.prepend("PREPEND");
+
+first.append("APPEND");
+first.append("APPEND");
+
+console.log("\n\nprepend, append");
+console.log("\nSize", first.size());
+console.log("To string: ", first.toString());
+
+/* We expect: 
+Size: 8
+(PREPEND) -> (PREPEND) -> (start) -> (1) -> (2) -> (3) -> (APPEND) -> (APPEND) -> (null) 
+*/
+
+// Testing _head(), tail(), at()
+console.log("\n\n_head, tail, at");
+console.log("\nHead:", first._head());
+console.log("\nTail:", first.tail());
+console.log('\nThe node at "2" is:', first.at(2));
+console.log('\nThe node at "5" is:', first.at(5));
+
+/* We expect: 
+Head: Node{value: PREPEND, nextNode: PREPEND}
+Tail: Node{value: APPEND, nextNode: null}
+The node at "2" is: Node{value: 'start', nextNode:...}
+The node at "5" is: Node{value: 3, nextNode:...}
+
+*/
+
+// Testing contains()
+console.log("\n\ncontains");
+console.log('\nThe value "start" exists in the list:', first.contains("start"));
+console.log(
+  'The value "missing" exists in the list:',
+  first.contains("missing")
+);
+
+/* We expect: 
+The value "start" exists in the list: true'
+The value "missing" exists in the list: true'
+*/
+
+// Testing find()
+console.log("\n\nfind");
+
+console.log("\nTo string: ", first.toString());
+
+console.log('\nThe index of "000" is:', first.find("000"));
+console.log('The index of "start" is:', first.find("start"));
+console.log('The index of "3" is:', first.find("3"));
+
+/* We expect:
+The index of "000" is: null
+The index of "start" is: 2
+The index of "3" is: 5
+
+*/
