@@ -8,9 +8,9 @@ A linked list is a linear sequence of nodes that contain two fields: data (value
 
 In this project we use two classes:
 
-Linked: represents the full list.
+Linked: represents the full list
 
-Node: contains a value property and a link to the nextNode, set both as null by default.
+Node: contains a value property and a link to the nextNode, set both as null by default
 
 #
 
