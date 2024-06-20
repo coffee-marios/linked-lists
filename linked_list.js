@@ -20,7 +20,6 @@ class Linked {
   prepend(value) {
     const newNode = new Node(value);
     if (this.head === null) {
-      // newNode.nextNode = this.head;
       this.head = newNode;
     } else {
       let current = this.head;
@@ -194,16 +193,11 @@ class Linked {
       this.head = this.head.nextNode;
       return;
     }
-    if (index === 1 && this.head.nextNode !== null) {
-      this.head.nextNode = this.head.nextNode.nextNode;
-      return;
-    }
 
     let ind = 0;
-    //let base = this.head;
     let current = this.head;
+
     while (ind < index) {
-      console.log(current.value, ind);
       if (ind === index - 1) {
         if (current.nextNode.nextNode) {
           current.nextNode = current.nextNode.nextNode;
@@ -215,13 +209,8 @@ class Linked {
         current = current.nextNode;
       }
 
-      //base = base.nextNode;
-
       ind++;
     }
-
-    //current.nextNode = current.nextNode;
-    console.log(current, "c");
   }
 }
 

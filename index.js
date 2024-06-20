@@ -9,9 +9,9 @@ first.append("1");
 first.append("2");
 first.append("3");
 //first.insertAt("INSERT", 3);
-first.append("4");
-first.append("5");
-first.append("6");
+// first.append("4");
+// first.append("5");
+// first.append("6");
 // first.pop();
 // first.pop();
 // first.pop();
@@ -28,11 +28,11 @@ console.log("size", first.size());
 // first.append("4");
 // console.log("head", first._head());
 
-console.log("str", first.toString());
+// console.log("str", first.toString());
 
-first.removeAt(6);
-console.log("str", first.toString());
-console.log("size", first.size());
+// first.removeAt(1);
+// console.log("str", first.toString());
+// console.log("size", first.size());
 
 // console.log("tail", first.tail());
 // console.log("size", first.size());
